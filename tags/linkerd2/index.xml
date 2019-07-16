@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linkerd2 on @jonathanbeber</title>
+    <link>https://jonathanbeber.github.io/tags/linkerd2/</link>
+    <description>Recent content in Linkerd2 on @jonathanbeber</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 16 Jul 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://jonathanbeber.github.io/tags/linkerd2/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>SMI traffic split on Linkerd2</title>
+      <link>https://jonathanbeber.github.io/post/smi-traffic-split/</link>
+      <pubDate>Tue, 16 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://jonathanbeber.github.io/post/smi-traffic-split/</guid>
+      <description>SMI Traffic split with Linkerd2 This year I had the opportunity to speak at the KubeCon Barcelona. It was my first KubeCon and my first big talk abroad. I&amp;rsquo;m going to let the youtube video here:
+  But this post it&amp;rsquo;s not about it, sorry for the personal marketing. Back in track, on this KubeCon was announced the Service Mesh Interface (SMI). &amp;ldquo;A standard interface for service meshes on Kubernetes&amp;rdquo; as its slogan says.</description>
+    </item>
+    
+  </channel>
+</rss>
