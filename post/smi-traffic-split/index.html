@@ -59,7 +59,7 @@
 
 
 <script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
- <meta name="generator" content="Hugo 0.55.6" />
+ <meta name="generator" content="Hugo 0.80.0" />
         
 
         
@@ -111,8 +111,6 @@
                             
                                 <li class="navbar-icon"><a href="https://t.me/jonathanbeber/"><i class="fa fa-telegram"></i></a></li>
                             
-                                <li class="navbar-icon"><a href="https://www.linkedin.com/in/jonathanbeber/"><i class="fa fa-linkedin"></i></a></li>
-                            
                                 <li class="navbar-icon"><a href="mailto:jonathanbeber@gmail.com"><i class="fa fa-envelope-o"></i></a></li>
                             
                         </ul>
@@ -149,61 +147,39 @@
 </div>
 
 
-    <br> <div class="text-justify">
-
-<h1 id="smi-traffic-split-with-linkerd2">SMI Traffic split with Linkerd2</h1>
-
+    <br> <div class="text-justify"><h1 id="smi-traffic-split-with-linkerd2">SMI Traffic split with Linkerd2</h1>
 <p>This year I had the opportunity to speak at the <a href="https://events.linuxfoundation.org/events/kubecon-cloudnativecon-europe-2019/">KubeCon Barcelona</a>. It was my first KubeCon and my first big talk abroad. I&rsquo;m going to let the youtube video here:</p>
 
-
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="//www.youtube.com/embed/07RvO4AChHE" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+  <iframe src="https://www.youtube.com/embed/07RvO4AChHE" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
 </div>
-
 
 <p>But this post it&rsquo;s not about it, sorry for the personal marketing. Back in track, on this KubeCon was announced the <strong>S</strong>ervice <strong>M</strong>esh <strong>I</strong>nterface (<a href="https://smi-spec.io/">SMI</a>). &ldquo;A standard interface for service meshes on Kubernetes&rdquo; as its slogan says. Service Mesh itself was a massive topic at this KubeCon edition. It&rsquo;s a hype (bad or good sense of the word, I&rsquo;ll let you decide) and it&rsquo;s almost impossible to ignore it.</p>
-
 <p>SMI aims to create a standard interface for service meshes on Kubernetes. Of course, it&rsquo;s a super new project, the expectations are high and what&rsquo;s actually done depends on the service meshes provider. It&rsquo;s worth checking out the keynote session with Gabe Monroy announcing the project and <a href="https://cloudblogs.microsoft.com/opensource/2019/05/21/service-mesh-interface-smi-release/">his blog post</a> on Microsoft&rsquo;s cloud blog.</p>
 
-
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="//www.youtube.com/embed/gDLD8gyd7J8" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+  <iframe src="https://www.youtube.com/embed/gDLD8gyd7J8" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
 </div>
 
-
-<h2 id="linkerd-2-4-0">Linkerd 2.4.0</h2>
-
+<h2 id="linkerd-240">Linkerd 2.4.0</h2>
 <p>On July 11th, 2019, Linkerd announced its <a href="https://linkerd.io/2019/07/11/announcing-linkerd-2.4/">2.4.0 version</a> including SMI traffic split support. Recently <a href="https://twitter.com/RodrigoVMonte">@RodrigoVMonte</a> and I did a quick presentation at a <a href="https://www.meetup.com/blndevops/events/261591117/">Berlin DevOps Meetup</a>. We created a repo with a simple tutorial on how it&rsquo;s possible to create traffic split with <a href="https://www.getambassador.io/">Ambassador</a>.</p>
-
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">We (me and <a href="https://twitter.com/RodrigoVMonte?ref_src=twsrc%5Etfw">@RodrigoVMonte</a>) created an <a href="https://twitter.com/getambassadorio?ref_src=twsrc%5Etfw">@getambassadorio</a> demo and presented during the <a href="https://twitter.com/hashtag/berlin?src=hash&amp;ref_src=twsrc%5Etfw">#berlin</a> <a href="https://twitter.com/hashtag/devops?src=hash&amp;ref_src=twsrc%5Etfw">#devops</a> meetup. Check it out: <a href="https://t.co/KFw3fNcGs0">https://t.co/KFw3fNcGs0</a></p>&mdash; Jonathan J. Beber (@jonathanbeber) <a href="https://twitter.com/jonathanbeber/status/1134366630560051200?ref_src=twsrc%5Etfw">May 31, 2019</a></blockquote>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">We (me and <a href="https://twitter.com/RodrigoVMonte?ref_src=twsrc%5Etfw">@RodrigoVMonte</a>) created an <a href="https://twitter.com/getambassadorio?ref_src=twsrc%5Etfw">@getambassadorio</a> demo and presented during the <a href="https://twitter.com/hashtag/berlin?src=hash&amp;ref_src=twsrc%5Etfw">#berlin</a> <a href="https://twitter.com/hashtag/devops?src=hash&amp;ref_src=twsrc%5Etfw">#devops</a> meetup. Check it out: <a href="https://t.co/KFw3fNcGs0">https://t.co/KFw3fNcGs0</a></p>&mdash; Jonathan Beber (@jonathanbeber) <a href="https://twitter.com/jonathanbeber/status/1134366630560051200?ref_src=twsrc%5Etfw">May 31, 2019</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-
 <p>Now, with SMI integration, on Linkerd2, I want to recreate this tutorial, with a simple, but a useful example for applications communicating internally on a Kubernetes cluster.</p>
-
 <h2 id="creating-an-environment">Creating an environment</h2>
-
 <p>I&rsquo;m going to use a <a href="https://github.com/Kubernetes/minikube"><code>minikube</code></a> cluster for that, but any Kubernetes cluster would work. You can download the resources I&rsquo;m using <a href="https://gist.github.com/jonathanbeber/0e705025894af5de146572aa0375c86b">here</a>.</p>
-
 <p>Once we have a Kubernetes cluster running and our manifests, let&rsquo;s create our first deployment:</p>
+<script type="application/javascript" src="https://gist.github.com/jonathanbeber/0e705025894af5de146572aa0375c86b.js?file=simple-service-v1.yaml"></script>
 
-<script type="application/javascript" src="//gist.github.com/jonathanbeber/0e705025894af5de146572aa0375c86b.js?file=simple-service-v1.yaml"></script>
-
-<p>This first file is straightforward, it creates a deployment of one service called &lsquo;simple-service&rsquo; and its respective Kubernetes&rsquo; service. Nothing special. Let&rsquo;s apply it:</p>
-
-<pre><code class="language-bash">$ kubectl create namespace simple-service
+<p>This first file is straightforward, it creates a deployment of one service called &lsquo;simple-service&rsquo; and its respective Kubernetes' service. Nothing special. Let&rsquo;s apply it:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ kubectl create namespace simple-service
 $ kubectl apply -f simple-service-v1.yaml
-</code></pre>
-
-<p>We&rsquo;re going to create a deployment on the default namespace to help us on the tests, the following deployment creates a deployment with a ubuntu image waiting on a long sleep:</p>
-
-<script type="application/javascript" src="//gist.github.com/jonathanbeber/0e705025894af5de146572aa0375c86b.js?file=debug-deployment.yaml"></script>
+</code></pre></div><p>We&rsquo;re going to create a deployment on the default namespace to help us on the tests, the following deployment creates a deployment with a ubuntu image waiting on a long sleep:</p>
+<script type="application/javascript" src="https://gist.github.com/jonathanbeber/0e705025894af5de146572aa0375c86b.js?file=debug-deployment.yaml"></script>
 
 <pre><code>$ kubectl apply -f debug-deployment.yaml
-</code></pre>
-
-<p>It seems strange, and it is. It&rsquo;s supposed to be just a debug pod, don&rsquo;t get attached to it. In a real environment, this deployment would be another application running on your cluster. Imagine <code>simple-service</code>&rsquo;s clients. Let&rsquo;s run a <code>kubectl exec</code> on the pod created by our debug deployment to simulate these clients making requests for &lsquo;simple-service&rsquo;.</p>
-
+</code></pre><p>It seems strange, and it is. It&rsquo;s supposed to be just a debug pod, don&rsquo;t get attached to it. In a real environment, this deployment would be another application running on your cluster. Imagine <code>simple-service</code>&rsquo;s clients. Let&rsquo;s run a <code>kubectl exec</code> on the pod created by our debug deployment to simulate these clients making requests for &lsquo;simple-service&rsquo;.</p>
 <pre><code>$ kubectl get pods
 NAME                     READY   STATUS    RESTARTS   AGE
 debug-5f7d54889f-vcb2j   1/1     Running   0          3m47s
@@ -212,42 +188,24 @@ root@debug-5f7d54889f-vcb2j:/$ apt update
 root@debug-5f7d54889f-vcb2j:/$ apt install curl
 root@debug-5f7d54889f-vcb2j:/$ curl simple-service-v1.simple-service.svc.cluster.local.
 I'm service v1
-</code></pre>
-
-<p>It works&hellip; but, a little bit strange the clients calling <code>simple-service-v1</code>, including the version. Imagine you releasing a new version, and having to update simple-service&rsquo;s address for every client. Let&rsquo;s create a new service to simplify it and be used as the <strong>root</strong> service by the SMI provider (Linkerd in this case). Take a look on the <a href="https://github.com/deislabs/smi-spec/blob/master/traffic-split.md">traffic split spec</a> to understand better this <strong>root</strong> service concept: &ldquo;The root service that clients use to connect to the destination application.&rdquo;</p>
-
+</code></pre><p>It works&hellip; but, a little bit strange the clients calling <code>simple-service-v1</code>, including the version. Imagine you releasing a new version, and having to update simple-service&rsquo;s address for every client. Let&rsquo;s create a new service to simplify it and be used as the <strong>root</strong> service by the SMI provider (Linkerd in this case). Take a look on the <a href="https://github.com/deislabs/smi-spec/blob/master/traffic-split.md">traffic split spec</a> to understand better this <strong>root</strong> service concept: &ldquo;The root service that clients use to connect to the destination application.&rdquo;</p>
 <p>Create the service now:</p>
-
-<script type="application/javascript" src="//gist.github.com/jonathanbeber/0e705025894af5de146572aa0375c86b.js?file=simple-service-root.yaml"></script>
+<script type="application/javascript" src="https://gist.github.com/jonathanbeber/0e705025894af5de146572aa0375c86b.js?file=simple-service-root.yaml"></script>
 
 <pre><code>$ kubectl apply -f simple-service-root.yaml
-</code></pre>
-
-<p>Now, on the debug pod, let&rsquo;s request with the new address:</p>
-
+</code></pre><p>Now, on the debug pod, let&rsquo;s request with the new address:</p>
 <pre><code>root@debug-5f7d54889f-vcb2j:/$ curl simple-service.simple-service.svc.cluster.local.
 I'm service v1
-</code></pre>
-
-<p>It works :)!</p>
-
+</code></pre><p>It works :)!</p>
 <h3 id="simple-service-v2">Simple Service v2</h3>
-
 <p>Imagine that the simple service ow has a new version called <code>v2</code>. Let&rsquo;s deploy the new version of <code>simple-service</code>:</p>
-
-<script type="application/javascript" src="//gist.github.com/jonathanbeber/0e705025894af5de146572aa0375c86b.js?file=simple-service-v2.yaml"></script>
+<script type="application/javascript" src="https://gist.github.com/jonathanbeber/0e705025894af5de146572aa0375c86b.js?file=simple-service-v2.yaml"></script>
 
 <pre><code>$ kubectl apply -f simple-service-v2.yaml
-</code></pre>
-
-<p>Pretty simple, it creates a new deployment with the new application&rsquo;s version (the docker image tag) and its respective service. On the debug pod you can check its running:</p>
-
+</code></pre><p>Pretty simple, it creates a new deployment with the new application&rsquo;s version (the docker image tag) and its respective service. On the debug pod you can check its running:</p>
 <pre><code>root@debug-5f7d54889f-vcb2j:/$ curl simple-service-v2.simple-service.svc.cluster.local.
 I'm new!! Service v2 :)
-</code></pre>
-
-<p>Perfect, let&rsquo;s try it with the <strong>root</strong> service, but, multiple times:</p>
-
+</code></pre><p>Perfect, let&rsquo;s try it with the <strong>root</strong> service, but, multiple times:</p>
 <pre><code>root@debug-5f7d54889f-vcb2j:/$ for i in {1..10};do curl simple-service.simple-service.svc.cluster.local.; echo; done
 I'm service v1
 I'm service v1
@@ -259,50 +217,26 @@ I'm service v1
 I'm service v1
 I'm new!! Service v2 :)
 I'm new!! Service v2 :)
-</code></pre>
-
-<p>It worked, and the traffic is &ldquo;split&rdquo; between v1 and v2, but not in a controlled way. This behavior is normal since the <code>simple-service</code> service (the <strong>root</strong> service) we created is not defining the <code>version</code> label as a selector (recheck the service spec again: <code>kubectl get svc/simple-service -n simple-service -o yaml</code>). That&rsquo;s not exactly what we are looking for. The traffic split defines a way to define weights for each version.</p>
-
+</code></pre><p>It worked, and the traffic is &ldquo;split&rdquo; between v1 and v2, but not in a controlled way. This behavior is normal since the <code>simple-service</code> service (the <strong>root</strong> service) we created is not defining the <code>version</code> label as a selector (recheck the service spec again: <code>kubectl get svc/simple-service -n simple-service -o yaml</code>). That&rsquo;s not exactly what we are looking for. The traffic split defines a way to define weights for each version.</p>
 <p>Now, let&rsquo;s start with Linkerd and the SMI spec.</p>
-
 <h2 id="linkerd">Linkerd</h2>
-
 <p>You&rsquo;ll have to download Linkerd2:</p>
-
 <pre><code>$ curl https://run.linkerd.io/install | sh
 $ export PATH=$PATH:$HOME/.linkerd2/bin
-</code></pre>
-
-<p>It&rsquo;ll install and add the <code>~/.linkerd2</code> dir in your <code>PATH</code> temporarily. You&rsquo;ll have to adjust your shell if you want this command to be there on new shell sessions (<code>.bashrc</code>, <code>.zshrc</code>, etc).</p>
-
+</code></pre><p>It&rsquo;ll install and add the <code>~/.linkerd2</code> dir in your <code>PATH</code> temporarily. You&rsquo;ll have to adjust your shell if you want this command to be there on new shell sessions (<code>.bashrc</code>, <code>.zshrc</code>, etc).</p>
 <p>With Linkerd2 installed on your local machine, it&rsquo;s time to deploy it to the cluster:</p>
-
 <pre><code>$ linkerd install | kubectl apply -f -
-</code></pre>
-
-<p>The command <code>linkerd install</code> generates Kubernetes&rsquo; resources and its just prints a regular <code>yaml</code> text to your <code>stdout</code>. You can save it to a file, to verify it, or apply any other operations. In this case, I&rsquo;m applying it directly to the <code>kubectl</code> command.</p>
-
+</code></pre><p>The command <code>linkerd install</code> generates Kubernetes' resources and its just prints a regular <code>yaml</code> text to your <code>stdout</code>. You can save it to a file, to verify it, or apply any other operations. In this case, I&rsquo;m applying it directly to the <code>kubectl</code> command.</p>
 <p>Check if the pods are running on the <code>linkerd</code> namespace. It takes a while (less than 3 minutes for me). You can also use the command <code>linkerd check</code> to verify its installation.</p>
-
 <p>Once it&rsquo;s running, it&rsquo;s time to inject Linkerd&rsquo;s proxies pods on our service. I won&rsquo;t try to explain what&rsquo;s Linkerd, or a service mesh, since, it&rsquo;s a whole subject for a new post (maybe a book?!) itself. Take a look at <a href="https://linkerd.io/2/reference/architecture/">Linkerd&rsquo;s architecture reference</a> and this <a href="https://buoyant.io/2017/04/25/whats-a-service-mesh-and-why-do-i-need-one/">Buyoant blog post</a> if you want to understand better how Linkerd works. The vital part of this step is that we&rsquo;re &ldquo;injecting&rdquo; Linkerd on our deployment, and it means that we&rsquo;re going to modify our Kubernetes resource to include a new container on our pods.</p>
-
 <pre><code>kubectl get deploy -o yaml -n simple-service | linkerd inject -
-</code></pre>
-
-<p>This command will output both deployments (<code>v1</code> and <code>v2</code>) for the simple-service with Linkerd&rsquo;s configurations. Again we could save it to a file and apply it, but, once again, I choose to repass it to <code>kubectl</code>:</p>
-
+</code></pre><p>This command will output both deployments (<code>v1</code> and <code>v2</code>) for the simple-service with Linkerd&rsquo;s configurations. Again we could save it to a file and apply it, but, once again, I choose to repass it to <code>kubectl</code>:</p>
 <pre><code>kubectl get deploy -o yaml -n simple-service | linkerd inject - | kubectl apply -f -
-</code></pre>
-
-<p>Now, simple-service is &ldquo;meshed&rdquo;. It means that, automatically, simple-service counts with new features as <a href="https://linkerd.io/2/features/telemetry/">telemetry</a>, <a href="https://linkerd.io/2/features/automatic-mtls/">automatic mTLS</a> with other meshed pods and <a href="https://linkerd.io/2/features/">more</a>. However, for this post, I want to focus on the <a href="https://linkerd.io/2/features/canary-rollout/">canary release</a>. With Linkerd deployed and our pods meshed, let&rsquo;s create a <code>TrafficSplit</code> resource:</p>
-
-<script type="application/javascript" src="//gist.github.com/jonathanbeber/0e705025894af5de146572aa0375c86b.js?file=traffic-split.yaml"></script>
+</code></pre><p>Now, simple-service is &ldquo;meshed&rdquo;. It means that, automatically, simple-service counts with new features as <a href="https://linkerd.io/2/features/telemetry/">telemetry</a>, <a href="https://linkerd.io/2/features/automatic-mtls/">automatic mTLS</a> with other meshed pods and <a href="https://linkerd.io/2/features/">more</a>. However, for this post, I want to focus on the <a href="https://linkerd.io/2/features/canary-rollout/">canary release</a>. With Linkerd deployed and our pods meshed, let&rsquo;s create a <code>TrafficSplit</code> resource:</p>
+<script type="application/javascript" src="https://gist.github.com/jonathanbeber/0e705025894af5de146572aa0375c86b.js?file=traffic-split.yaml"></script>
 
 <pre><code>$ kubectl apply -f traffic-split.yaml
-</code></pre>
-
-<p>With this traffic split, we declare the following: all the requests to the <code>simple-service</code>  service (our <strong>root</strong> service) should go to the service <code>simple-service-v1</code>. <code>TrafficSplit</code> uses the weight measure identical to resources (<code>1 == 1000m</code>). Check the <a href="https://github.com/deislabs/smi-spec/blob/master/traffic-split.md#tradeoffs">traffic split spec</a> again for more details. This first traffic split is a good approach when we are creating a <code>v2</code> for our application. Even if the <strong>root</strong> service&rsquo;s selector selects the <code>v2</code> pod, our service mesh provider won&rsquo;t send traffic to it. Let&rsquo;s test it on the debug pod:</p>
-
+</code></pre><p>With this traffic split, we declare the following: all the requests to the <code>simple-service</code>  service (our <strong>root</strong> service) should go to the service <code>simple-service-v1</code>. <code>TrafficSplit</code> uses the weight measure identical to resources (<code>1 == 1000m</code>). Check the <a href="https://github.com/deislabs/smi-spec/blob/master/traffic-split.md#tradeoffs">traffic split spec</a> again for more details. This first traffic split is a good approach when we are creating a <code>v2</code> for our application. Even if the <strong>root</strong> service&rsquo;s selector selects the <code>v2</code> pod, our service mesh provider won&rsquo;t send traffic to it. Let&rsquo;s test it on the debug pod:</p>
 <pre><code>root@debug-5f7d54889f-vcb2j:/$ for i in {1..10};do curl simple-service.simple-service.svc.cluster.local.; echo; done
 I'm new!! Service v2 :)
 I'm new!! Service v2 :)
@@ -314,21 +248,13 @@ I'm service v1
 I'm service v1
 I'm new!! Service v2 :)
 I'm new!! Service v2 :)
-</code></pre>
-
-<p>It didn&rsquo;t work. That&rsquo;s expected since we didn&rsquo;t mesh our debug pod. On the <a href="https://github.com/deislabs/smi-spec/blob/master/traffic-split.md#traffic-split">traffic split spec</a> we have the following:</p>
-
+</code></pre><p>It didn&rsquo;t work. That&rsquo;s expected since we didn&rsquo;t mesh our debug pod. On the <a href="https://github.com/deislabs/smi-spec/blob/master/traffic-split.md#traffic-split">traffic split spec</a> we have the following:</p>
 <blockquote>
 <p>It will be used by clients such as ingress controllers or service mesh sidecars to split the outgoing traffic to different destinations.</p>
 </blockquote>
-
 <p>So, it makes sense. The <strong>outgoing</strong> traffic for our debug pod isn&rsquo;t being controlled by Linkerd. Let&rsquo;s mesh it:</p>
-
 <pre><code>$ kubectl get deploy -o yaml | linkerd inject - | kubectl apply -f -
-</code></pre>
-
-<p>The pod where we were executing our debug bash will terminate. Wait for a new pod to start and let&rsquo;s try it again:</p>
-
+</code></pre><p>The pod where we were executing our debug bash will terminate. Wait for a new pod to start and let&rsquo;s try it again:</p>
 <pre><code>$ kubectl get pods
 NAME                     READY   STATUS    RESTARTS   AGE
 debug-5df9f65b74-jxl2f   2/2     Running   0          65s
@@ -346,31 +272,22 @@ I'm service v1
 I'm service v1
 I'm service v1
 I'm service v1
-</code></pre>
-
-<p>Now it works! With our meshed debug pod, Linkerd can apply the traffic split rules.</p>
-
+</code></pre><p>Now it works! With our meshed debug pod, Linkerd can apply the traffic split rules.</p>
 <p>Try to change the weights on the <code>traffic-split.yaml</code> file and apply it again to see how it works. For example, let&rsquo;s suppose that <code>v2</code> is ready to receive around 75% percent of our traffic. Edit the file to adjust the weights and apply it:</p>
-
-<pre><code class="language-yaml">apiVersion: split.smi-spec.io/v1alpha1
-kind: TrafficSplit
-metadata:
-    name: simple-service
-    namespace: simple-service
-spec:
-    service: simple-service
-    backends:
-    - service: simple-service-v1
-      weight: 250m
-    - service: simple-service-v2
-      weight: 750m
-</code></pre>
-
-<pre><code>$ kubectl apply -f traffic-split.yaml
-</code></pre>
-
-<p>Now, test it again:</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">split.smi-spec.io/v1alpha1</span>
+<span style="color:#f92672">kind</span>: <span style="color:#ae81ff">TrafficSplit</span>
+<span style="color:#f92672">metadata</span>:
+    <span style="color:#f92672">name</span>: <span style="color:#ae81ff">simple-service</span>
+    <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">simple-service</span>
+<span style="color:#f92672">spec</span>:
+    <span style="color:#f92672">service</span>: <span style="color:#ae81ff">simple-service</span>
+    <span style="color:#f92672">backends</span>:
+    - <span style="color:#f92672">service</span>: <span style="color:#ae81ff">simple-service-v1</span>
+      <span style="color:#f92672">weight</span>: <span style="color:#ae81ff">250m</span>
+    - <span style="color:#f92672">service</span>: <span style="color:#ae81ff">simple-service-v2</span>
+      <span style="color:#f92672">weight</span>: <span style="color:#ae81ff">750m</span>
+</code></pre></div><pre><code>$ kubectl apply -f traffic-split.yaml
+</code></pre><p>Now, test it again:</p>
 <pre><code>root@debug-5df9f65b74-jxl2f:/$ for i in {1..10};do curl simple-service.simple-service.svc.cluster.local.; echo; done
 I'm new!! Service v2 :)
 I'm new!! Service v2 :)
@@ -382,17 +299,10 @@ I'm new!! Service v2 :)
 I'm new!! Service v2 :)
 I'm new!! Service v2 :)
 I'm service v1
-</code></pre>
-
-<p><code>TrafficSplit</code> is a Kubernetes resource, you can edit/view/delete/create/etc it with <code>kubectl</code>:</p>
-
+</code></pre><p><code>TrafficSplit</code> is a Kubernetes resource, you can edit/view/delete/create/etc it with <code>kubectl</code>:</p>
 <pre><code>$ kubectl get trafficsplit -o yaml -n simple-service
-</code></pre>
-
-<h1 id="what-s-next">What&rsquo;s next?</h1>
-
+</code></pre><h1 id="whats-next">What&rsquo;s next?</h1>
 <p>SMI is pretty new, so a lot can be expected from it. <a href="https://istio.io/">Istio</a>, and <a href="https://www.consul.io/docs/connect/index.html">Consul Connect</a> are already implementing it as well. I&rsquo;m expecting great things to come.</p>
-
 <p>As a next step, I&rsquo;ll try some automated canary releases with <a href="https://flagger.app">Flagger</a>. The project is already using traffic split from SMI with Linkerd, for example, <a href="https://docs.flagger.app/usage/linkerd-progressive-delivery">https://docs.flagger.app/usage/linkerd-progressive-delivery</a>.</p>
 </div>
 
@@ -432,7 +342,7 @@ I'm service v1
 
         <footer>
 
-            <p class="copyright text-muted">&copy; All rights reserved. Powered by <a href="https://gohugo.io">Hugo</a> and <a href="https://github.com/calintat/minimal">Minimal</a></p>
+            <p class="copyright text-muted">© All rights reserved. Powered by <a href="https://gohugo.io">Hugo</a> and <a href="https://github.com/calintat/minimal">Minimal</a></p>
 
         </footer>
        

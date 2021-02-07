@@ -1,35 +1,30 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
     <loc>https://jonathanbeber.github.io/</loc>
     <lastmod>2019-07-16T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://jonathanbeber.github.io/tags/kubernetes/</loc>
     <lastmod>2019-07-16T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://jonathanbeber.github.io/tags/linkerd2/</loc>
     <lastmod>2019-07-16T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://jonathanbeber.github.io/post/</loc>
     <lastmod>2019-07-16T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://jonathanbeber.github.io/tags/smi/</loc>
     <lastmod>2019-07-16T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -40,7 +35,6 @@
   <url>
     <loc>https://jonathanbeber.github.io/tags/</loc>
     <lastmod>2019-07-16T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -51,12 +45,10 @@
   <url>
     <loc>https://jonathanbeber.github.io/tags/hello-world/</loc>
     <lastmod>2017-11-20T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://jonathanbeber.github.io/categories/</loc>
-    <priority>0</priority>
   </url>
   
 </urlset>
